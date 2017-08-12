@@ -1,3 +1,23 @@
+<script>
+	$(function(){
+
+		console.log("checkpoint a");
+
+		$("#my-click").click(function(){
+			console.log("checkpoint b");
+		})
+
+		console.log("checkpoint c");
+		// $("#my-click").click(function(){
+		// 	alert("test");
+		// })
+
+		$("#my-click").click(function(){
+			$("#foo").after('<h1>zoo</h1>')
+		})
+	})
+</script>
+
 <p>
 	<a id="my-click">click me</a>
 </p>
@@ -5,20 +25,3 @@
 <div id="foo" style="border: 1px solid red;">
 	<p>bar</p>
 </div>
-
-<script>
-	console.log("checkpoint a");
-
-	$("#my-click").click(function(){
-		console.log("checkpoint b");
-	})
-
-	console.log("checkpoint c");
-	// $("#my-click").click(function(){
-	// 	alert("test");
-	// })
-
-	$("#my-click").click(function(){
-		$("#foo").after('<h1>zoo</h1>')
-	})
-</script>
