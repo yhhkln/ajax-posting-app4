@@ -9,6 +9,23 @@
   </head>
 
   <body>
+
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <%= flash[:alert] %>
+    <% end %>
+
+    <% if current_user %>
+      <%= link_to('logout', destroy_user_session_path, :method => :delete) %> $$
+      <%= link_to('password', edit_registration_path(:user)) %>
+    <% else %>
+      <%= link_to('signup', new_registraion_path(:user)) %>$$
+      <%= link_to('login', new_session_path(:user)) %>$$
+    <% end %>
+
     <%= link_to "jquery1", jquery_1_path %> 3333
     <%= link_to "jquery2", jquery_2_path %> 3333
     <%= link_to "jquery3", jquery_3_path %> 3333
