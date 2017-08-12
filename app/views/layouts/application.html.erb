@@ -22,7 +22,7 @@
       <%= link_to('logout', destroy_user_session_path, :method => :delete) %> $$
       <%= link_to('password', edit_registration_path(:user)) %>
     <% else %>
-      <%= link_to('signup', new_registraion_path(:user)) %>$$
+      <%= link_to('signup', new_registration_path(:user)) %>$$
       <%= link_to('login', new_session_path(:user)) %>$$
     <% end %>
 
