@@ -4,14 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-         has_many :posts
+  has_many :posts
 
-         has_many :likes, :dependent => :destroy
-         has_many :liked_posts, :through => :likes, :source => :post
+  has_many :likes, :dependent => :destroy
+  has_many :liked_posts, :through => :likes, :source => :post
 
-         def display_name
+  def display_name
+   self.email.split("@").first
+  end
 
-           self.email.split("@").first
-
-         end
+  def is_admin?
+   role == "admin"
+  end
 end
