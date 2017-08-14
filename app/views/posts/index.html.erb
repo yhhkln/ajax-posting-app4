@@ -16,7 +16,7 @@
 </div>
 
 <script>
-$(".toggle-flag").on('change',function(){
+$("#post-list").on('change', ".toggle-flag", function(){
 	var url = $(this).data("url");
 
 	$.ajax({
@@ -50,7 +50,7 @@ $(".toggle-flag").on('change',function(){
 		}
 	})
 
-	$(".delete-post").click(function(evt){
+	$("#post-list").on('click', ".delete-post", function(evt){
 		evt.preventDefault();
 		var url = $(this).attr("href");
 
