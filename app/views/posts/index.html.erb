@@ -18,6 +18,7 @@
 <script>
 $("#post-list").on('change', ".toggle-flag", function(){
 	var url = $(this).data("url");
+	var that = this;
 
 	$.ajax({
 		url: url,
@@ -25,9 +26,9 @@ $("#post-list").on('change', ".toggle-flag", function(){
 		dataType: "json",
 		success: function(data){
 			if ( data["flag_at"] ) {
-				$("#post-flag-" + data["id"]).html(data["flag_at"]);
+				$(that).closest("label").find("span").html(data["flag_at"]);
 			} else {
-				$("#post-flag-" + data["id"]).html("");
+				$(that).closest("label").finc("span").html("");
 			}
 		}
 	});
@@ -53,13 +54,14 @@ $("#post-list").on('change', ".toggle-flag", function(){
 	$("#post-list").on('click', ".delete-post", function(evt){
 		evt.preventDefault();
 		var url = $(this).attr("href");
+		var that = this ;
 
 		$.ajax({
 			url: url,
 			method: 'DELETE',
 			dataType: 'json',
 			success: function(data){
-				$("#post-" + data["id"]).remove();
+				$(that).closest(".panel").remove();
 			}
 		})
 	})
