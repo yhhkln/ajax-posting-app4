@@ -1,4 +1,13 @@
 class Post < ApplicationRecord
+	has_many :scores, :class_name => "PostScore"
+
+	def find_score(user)
+		user && self.scores.where( :user_id => user.id ).first
+	end
+
+	def average_score
+		self.scores.average(:score)
+	end
 	belongs_to :category, :optional => true
 	validates_presence_of :content
 	belongs_to :user
